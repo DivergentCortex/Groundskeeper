@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Keeper plugin cache retention every six hours
+
+[Timer]
+OnCalendar=*-*-* 00/6:17:00
+Persistent=true
+RandomizedDelaySec=5min
+Unit=keeper-cache-retention.service
+
+[Install]
+WantedBy=timers.target

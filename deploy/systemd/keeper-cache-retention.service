@@ -1,0 +1,10 @@
+[Unit]
+Description=Groundskeeper plugin cache retention and disk threshold check
+Documentation=file://%h/projects/Groundskeeper/deploy/systemd/README.md
+
+[Service]
+Type=oneshot
+ExecStart=/opt/microsoft/powershell/7/pwsh -NoProfile -NonInteractive -File %h/projects/Groundskeeper/scripts/Invoke-KeeperScheduledRetention.ps1 -Remove
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=30min
